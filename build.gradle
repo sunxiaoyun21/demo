@@ -1,0 +1,63 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+}
+
+allprojects {
+
+    apply from: rootProject.projectDir.path + '/ext.gradle'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group 'com.example'
+    version '1.0-SNAPSHOT'
+
+    // JVM 版本号要求
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://10.110.2.70:8081/repository/maven-public/'
+        }
+    }
+
+    dependencies {
+        compileOnly(
+                "org.projectlombok:lombok",
+        )
+        annotationProcessor "org.projectlombok:lombok"
+
+        testAnnotationProcessor "org.projectlombok:lombok"
+
+        testCompileOnly "org.projectlombok:lombok"
+    }
+    publishing {
+        publications {
+            cLibrary(MavenPublication) {
+                from components.java
+            }
+        }
+
+        repositories {
+            maven {
+                def releasesRepoUrl = "http://10.110.2.70:8081/repository/maven-releases/"
+                def snapshotsRepoUrl = "http://10.110.2.70:8081/repository/maven-snapshots/"
+                url = project.hasProperty('release') ? releasesRepoUrl : snapshotsRepoUrl
+                version = project.hasProperty('release') ? version + "-RELEASE" : version + "-SNAPSHOT"
+                credentials {
+                    username = 'admin'
+                    password = "zhichu123"
+                }
+            }
+        }
+    }
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

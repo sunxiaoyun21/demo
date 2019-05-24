@@ -1,0 +1,28 @@
+dependencies {
+    implementation("com.fanglin:tk-mapper-generator:1.0.0")
+    compile("com.github.pagehelper:pagehelper-spring-boot-starter:${pagehelperVersion}")
+    compile("com.alibaba:dubbo-registry-nacos:${dubboRegistryNacosVersion}")
+    compile("com.alibaba.boot:dubbo-spring-boot-starter:${dubboStarterVersion}")
+    compile("com.alibaba:dubbo:${alibabaDubboVersion}")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("tk.mybatis:mapper-spring-boot-starter:${mapperVersion}")
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisSpringbootStarterVersion}")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.postgresql:postgresql")
+    compile ("io.netty:netty-all")
+    compile project(':api')
+    compile project(':core')
+}
+configurations {
+    //ExcelUtils-报表
+    all*.exclude module: 'poi'
+    all*.exclude module: 'poi-ooxml'
+    //QrCodeUtils-二维码
+    all*.exclude module: 'javase'
+    //spring-boot-starter-data-redis默认使用lettuce，排除掉使用jedis
+    all*.exclude module: 'lettuce-core'
+    //core包链路追踪
+    all*.exclude module: 'zipkin-sender-okhttp3'
+    all*.exclude module: 'brave-instrumentation-com.example.dubbo-rpc'
+    all*.exclude module: 'spring-boot-starter-data-redis'
+}

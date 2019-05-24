@@ -1,0 +1,19 @@
+dependencies {
+    compile("com.github.pagehelper:pagehelper-spring-boot-starter:${pagehelperVersion}")
+    compile("org.apache.poi:poi:${poiVersion}")
+    compile("org.apache.poi:poi-ooxml:${poiVersion}")
+    compile("org.apache.httpcomponents:httpclient:${httpclientVersion}")
+    compile("com.google.zxing:javase:${javaseVersion}")
+    compile("org.springframework.boot:spring-boot-starter-undertow:${springbootVersion}") {
+        exclude module: 'undertow-websockets-jsr'
+    }
+    compile("org.springframework.boot:spring-boot-configuration-processor:${springbootVersion}")
+    compile("redis.clients:jedis:${jedisVersion}")
+    compile("org.springframework.boot:spring-boot-starter-aop:${springbootVersion}")
+    compile("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+    compile("io.zipkin.reporter2:zipkin-sender-okhttp3:${zipkinSenderOkhttp3Version}")
+    compile("io.zipkin.brave:brave-instrumentation-dubbo-rpc:${braveInstrumentationDubboRpcVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-redis:${springbootVersion}"){
+        exclude module: 'lettuce-core'
+    }
+}
