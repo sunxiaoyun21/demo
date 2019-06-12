@@ -32,7 +32,7 @@ dubbo:
     name: dubbo-template
   protocol:
     name: dubbo
-    port: 20880
+    port: 20887
   provider:
     timeout: 10000
   registry:

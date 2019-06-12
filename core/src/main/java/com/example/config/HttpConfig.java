@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import properties.HttpClientProperties;
+import com.example.properties.HttpClientProperties;
 
 /**
  * httpClient配置

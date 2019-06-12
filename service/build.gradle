@@ -20,7 +20,7 @@ configurations {
     //QrCodeUtils-二维码
     all*.exclude module: 'javase'
     //spring-boot-starter-data-redis默认使用lettuce，排除掉使用jedis
-    all*.exclude module: 'lettuce-core'
+    all*.exclude module: 'lettuce-com.example.core'
     //core包链路追踪
     all*.exclude module: 'zipkin-sender-okhttp3'
     all*.exclude module: 'brave-instrumentation-com.example.dubbo-rpc'

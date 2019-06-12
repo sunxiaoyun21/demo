@@ -6,9 +6,10 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.example.entity.UserEntity;
 import com.example.mapper.MapperFactory;
 import com.example.model.UserModel;
+import com.example.utils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import utils.BeanUtils;
+
 
 /**
  * @author 孙小云
@@ -26,6 +27,7 @@ public class UserService implements UserApi {
 
     @Override
     public boolean saveUser(UserModel userModel) {
+
         return mapperFactory.userMapper.insert( BeanUtils.copy(userModel, UserEntity.class))>0;
     }
 }

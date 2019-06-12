@@ -14,7 +14,7 @@ dependencies {
     compile("io.zipkin.reporter2:zipkin-sender-okhttp3:${zipkinSenderOkhttp3Version}")
     compile("io.zipkin.brave:brave-instrumentation-dubbo-rpc:${braveInstrumentationDubboRpcVersion}")
     compile("org.springframework.boot:spring-boot-starter-data-redis:${springbootVersion}"){
-        exclude module: 'lettuce-core'
+        exclude module: 'lettuce-com.example.core'
     }
 }
 bootJar.enabled=false

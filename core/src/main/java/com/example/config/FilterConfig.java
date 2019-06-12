@@ -1,7 +1,7 @@
 package com.example.config;
 
 
-import core.filter.RequestLogFilter;
+import com.example.core.filter.RequestLogFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
