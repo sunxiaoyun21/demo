@@ -17,3 +17,5 @@ dependencies {
         exclude module: 'lettuce-core'
     }
 }
+bootJar.enabled=false
+jar.enabled = true

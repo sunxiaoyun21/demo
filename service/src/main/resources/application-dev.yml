@@ -1,0 +1,16 @@
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    url: jdbc:postgresql://10.110.2.80:5432/zhichu-db
+    username: javaw
+    password: java2PJ88G7w4hQV4wREhqXcYZxYRCKU
+  redis:
+    host: 47.101.151.125
+    port: 6379
+    database: 0
+    password: 123456
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848

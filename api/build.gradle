@@ -1,7 +1,5 @@
 dependencies {
-   /* compile('com.zhichu.common:zhichu-common:1.0.0-RELEASE'){
-        exclude module: 'spring-web'
-    }*/
+  
     compile project(':core')
     compile("io.springfox:springfox-swagger2:${swaggerVersion}")
  

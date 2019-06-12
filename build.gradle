@@ -14,7 +14,7 @@ allprojects {
     apply plugin: 'io.spring.dependency-management'
 
     group 'com.example'
-    version '1.0-SNAPSHOT'
+    version '1.0'
 
     // JVM 版本号要求
     sourceCompatibility = 1.8
@@ -23,8 +23,10 @@ allprojects {
     repositories {
         mavenLocal()
         maven {
-            url 'http://10.110.2.70:8081/repository/maven-public/'
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
+        mavenCentral()
+
     }
 
     dependencies {
@@ -37,7 +39,15 @@ allprojects {
 
         testCompileOnly "org.projectlombok:lombok"
     }
+
     publishing {
+        publications {
+            myPublish(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+/*    publishing {
         publications {
             cLibrary(MavenPublication) {
                 from components.java
@@ -56,7 +66,7 @@ allprojects {
                 }
             }
         }
-    }
+    }*/
 }
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
